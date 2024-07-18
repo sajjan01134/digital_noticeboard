@@ -1,0 +1,7 @@
+dnbenv
+.vscode
+digital_noticeboard_backend
+dnbapp
+
+..\__pycache__
+
