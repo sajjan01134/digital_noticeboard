@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-drz78^fg+4alj0&w40pl3b)cfg3^km5)!%2fo5!p&=a8)41s3*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['digital-noticeboard.onrender.com','127.0.0.1','localhost']
 
 
 # Application definition
