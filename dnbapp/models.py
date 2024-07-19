@@ -11,7 +11,7 @@ class GeneralNotice(models.Model):
     main_content = models.TextField()
     image = models.ImageField(upload_to='notices/', blank=True, null=True)
     document = models.FileField(upload_to='notices/', blank=True, null=True)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
     
 
@@ -21,7 +21,7 @@ class ExamNotice(models.Model):
     image = models.ImageField(upload_to='exam_notices/', blank=True, null=True)
     document = models.FileField(upload_to='exam_notices/', blank=True, null=True)
     sem = models.IntegerField()
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
  
 
@@ -32,7 +32,7 @@ class AcademicNotice(models.Model):
     document = models.FileField(upload_to='academic_notices/', blank=True, null=True)
     sem = models.IntegerField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
    
 
@@ -43,7 +43,7 @@ class DepartmentNotice(models.Model):
     document = models.FileField(upload_to='department_notices/', blank=True, null=True)
     sem = models.IntegerField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
     
 
@@ -56,6 +56,6 @@ class PlacementNotice(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     organisation = models.CharField(max_length=255)
     specific_details = models.TextField()
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
    
