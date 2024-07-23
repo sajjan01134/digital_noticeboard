@@ -12,21 +12,21 @@ class ExamNoticeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AcademicNoticeSerializer(serializers.ModelSerializer):
-    department = serializers.SlugRelatedField(slug_field='department_name', queryset=Department.objects.all())
+   
 
     class Meta:
         model = AcademicNotice
         fields = '__all__'
 
 class DepartmentNoticeSerializer(serializers.ModelSerializer):
-    department = serializers.SlugRelatedField(slug_field='department_name', queryset=Department.objects.all())
+   
 
     class Meta:
         model = DepartmentNotice
         fields = '__all__'
 
 class PlacementNoticeSerializer(serializers.ModelSerializer):
-    department = serializers.SlugRelatedField(slug_field='department_name', queryset=Department.objects.all())
+     
 
     class Meta:
         model = PlacementNotice
