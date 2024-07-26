@@ -22,8 +22,8 @@ router.register(r'departments', DepartmentViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('filter/gn/',GeneralNoticeFilterView.as_view(), name='general_filter'),         
-    path('filter/exam/',ExamNoticeFilterView.as_view(), name='exam_filter'),             
-    path('filter/acd/',AcademicNoticeFilterView.as_view(), name='academic_filter'),      
+    path('filter/exam/',ExamNoticeFilterView.as_view(), name='exam_filter'),       
+    path('filter/acd/',AcademicNoticeFilterView.as_view(), name='academic_filter'),  
     path('filter/dept/',DepartmentNoticeFilterView.as_view(), name='department_filter'), 
     path('filter/plct/',PlacementNoticeFilterView.as_view(), name='placement_filter'),   
 ]
