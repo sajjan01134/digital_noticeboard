@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from .models import GeneralNotice, ExamNotice, AcademicNotice, DepartmentNotice, PlacementNotice, Department
+from users.permissions import IsStaff
 from .serializers import (
     GeneralNoticeSerializer, 
     ExamNoticeSerializer, 
@@ -24,6 +25,7 @@ class AcademicNoticeViewSet(viewsets.ModelViewSet):
 class DepartmentNoticeViewSet(viewsets.ModelViewSet):
     queryset = DepartmentNotice.objects.all()
     serializer_class = DepartmentNoticeSerializer
+    permission_classes=[IsStaff]
 
 class PlacementNoticeViewSet(viewsets.ModelViewSet):
     queryset = PlacementNotice.objects.all()
@@ -32,3 +34,4 @@ class PlacementNoticeViewSet(viewsets.ModelViewSet):
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+    

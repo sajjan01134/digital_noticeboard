@@ -13,6 +13,9 @@ class UserSerializer(serializers.ModelSerializer):
             "role",
             "password",
             "is_active",
+            "department",
+            "staff_name",
+            "staff_mob"
         )
         extra_kwargs = {"password": {"write_only": True}}
     def create(self, validated_data):
@@ -20,6 +23,9 @@ class UserSerializer(serializers.ModelSerializer):
             username=validated_data["username"],
             email=validated_data["email"],
             role=validated_data.get("role"),
+            staff_name = validated_data["staff_name"],
+            department= validated_data["department"],
+            staff_mob = validated_data["staff_mob"],
         )
         user.set_password(validated_data["password"])
         user.is_active = True
