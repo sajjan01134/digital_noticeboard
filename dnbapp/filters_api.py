@@ -23,7 +23,7 @@ class ExamNoticeFilterView(generics.ListAPIView):
 
     queryset = ExamNotice.objects.all()
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['date', 'topic']  # Define fields for filtering
+    filterset_fields = ['date', 'topic','sem']  # Define fields for filtering
 
 class  AcademicNoticeFilterView(generics.ListAPIView):
     serializer_class =  AcademicNoticeSerializer
