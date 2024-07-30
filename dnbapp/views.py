@@ -17,9 +17,36 @@ class GeneralNoticeViewSet(viewsets.ModelViewSet):
     queryset = GeneralNotice.objects.all()
     serializer_class = GeneralNoticeSerializer
 
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
+
 class ExamNoticeViewSet(viewsets.ModelViewSet):
     queryset = ExamNotice.objects.all()
     serializer_class = ExamNoticeSerializer
+
+
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
 
 class AcademicNoticeViewSet(viewsets.ModelViewSet):
     queryset = AcademicNotice.objects.all()
