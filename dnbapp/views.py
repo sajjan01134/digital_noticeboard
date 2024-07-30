@@ -10,6 +10,9 @@ from .serializers import (
     DepartmentSerializer
 )
 
+from users.permissions import IsSuperAdmin
+from rest_framework.permissions import AllowAny
+
 class GeneralNoticeViewSet(viewsets.ModelViewSet):
     queryset = GeneralNotice.objects.all()
     serializer_class = GeneralNoticeSerializer
@@ -34,4 +37,18 @@ class PlacementNoticeViewSet(viewsets.ModelViewSet):
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
+
     
