@@ -26,7 +26,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == "list":
-            permission_classes = [IsSuperAdmin]
+            permission_classes = [permissions.AllowAny]
         elif self.action == "create":
             permission_classes = [permissions.AllowAny]
         elif self.action in ["update", "partial_update"]:
