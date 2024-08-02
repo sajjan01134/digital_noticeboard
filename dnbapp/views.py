@@ -51,15 +51,53 @@ class ExamNoticeViewSet(viewsets.ModelViewSet):
 class AcademicNoticeViewSet(viewsets.ModelViewSet):
     queryset = AcademicNotice.objects.all()
     serializer_class = AcademicNoticeSerializer
+    
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
 
 class DepartmentNoticeViewSet(viewsets.ModelViewSet):
     queryset = DepartmentNotice.objects.all()
     serializer_class = DepartmentNoticeSerializer
-    permission_classes=[IsStaff]
-
+    
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
+    
 class PlacementNoticeViewSet(viewsets.ModelViewSet):
     queryset = PlacementNotice.objects.all()
     serializer_class = PlacementNoticeSerializer
+    
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [AllowAny]
+        elif self.action == "create":
+            permission_classes = [IsSuperAdmin]
+        elif self.action in ["update", "partial_update"]:
+            permission_classes = [IsSuperAdmin]
+        elif self.action == "destroy":
+            permission_classes = [IsSuperAdmin]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
